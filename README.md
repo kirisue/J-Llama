@@ -1,4 +1,3 @@
-Markdown
 # J-Llama
 
 [![Java](https://img.shields.io/badge/Java-17%2B-blue.svg)]()
@@ -8,7 +7,7 @@ Markdown
 
 ---
 
-<h2 id="english">English</h2>
+## English
 
 J-Llama is a pure Java inference engine for the Llama 2 architecture. 
 It has **zero third-party dependencies** (no PyTorch, TensorFlow, etc.). The core logic is built entirely from scratch using native Java arrays and fundamental math operators.
@@ -32,13 +31,19 @@ The parsing logic is compatible with the [llama2.c](https://github.com/karpathy/
 **2. Compile and Run**
 Zero dependencies, simply compile with JDK:
 ```bash
-javac -d bin src/com/kirisu/llama2/*.java
+javac -d bin src/main/java/com/kirisu/llama2/*.java
 java -cp bin com.kirisu.llama2.Llama2Runner
 
 Benchmark
 Environment: Standard Desktop CPU
+
 Memory Footprint: < 100 MB
-Generation Speed: ~56 tokens/s * Sample Output:（Once upon a time, there was a little girl named Lily. She loved to play outside in the sunshine. One day, she saw a big, red ball in the sky. It was the sun! She thought it was so pretty...）
+
+Generation Speed: ~56 tokens/s (Tested)
+
+Sample Output:
+
+Once upon a time, there was a little girl named Lily. She loved to play outside in the sunshine. One day, she saw a big, red ball in the sky. It was the sun! She thought it was so pretty...
 
 中文
 J-Llama 是一个用纯 Java 手写的 Llama 2 推理引擎。
@@ -48,8 +53,11 @@ J-Llama 是一个用纯 Java 手写的 Llama 2 推理引擎。
 
 核心设计
 零拷贝 (Zero-Copy) 加载：使用 NIO MappedByteBuffer 将权重文件直接映射到系统内存，绕过 JVM 堆区。15M 参数规模加载耗时 ~100ms，无 OOM 风险。
+
 内存池化无 GC：针对推理过程中的激活矩阵，设计了全局 RunState 和 KV Cache 内存池。将多维张量展开为一维连续 float[] 以提高 CPU L1/L2 缓存命中率，避免高频 Young GC 停顿。
+
 多线程算子压榨：基于 JUC (ThreadPoolExecutor + CountDownLatch)，将核心瓶颈 MatMul（矩阵乘法）按 CPU 核心数进行 Chunk 切块，实现无锁并发。
+
 Transformer 原生复现：纯代码实现了 RoPE (旋转位置编码)、SwiGLU 激活函数以及 Multi-Head Attention。
 
 快速开始
@@ -60,15 +68,16 @@ Transformer 原生复现：纯代码实现了 RoPE (旋转位置编码)、SwiGLU
 stories15M.bin (模型权重)
 
 tokenizer.bin (词表文件)
+
 2. 编译与运行
 零依赖，无需 Maven/Gradle，直接使用 JDK 编译：
-javac -d bin src/com/kirisu/llama2/*.java
+javac -d bin src/main/java/com/kirisu/llama2/*.java
 java -cp bin com.kirisu.llama2.Llama2Runner
-性能测试
+性能测试 (Benchmark)
 测试环境：普通家用 CPU
 
 内存占用：< 100 MB
 
 生成速度：~56 tokens/s (实测)
 
-输出演示：（Once upon a time, there was a little girl named Lily. She loved to play outside in the sunshine. One day, she saw a big, red ball in the sky. It was the sun! She thought it was so pretty...）
+输出演示：Once upon a time, there was a little girl named Lily. She loved to play outside in the sunshine. One day, she saw a big, red ball in the sky. It was the sun! She thought it was so pretty...

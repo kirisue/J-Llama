@@ -3,10 +3,14 @@
 [![Java](https://img.shields.io/badge/Java-17%2B-blue.svg)]()
 [![License](https://img.shields.io/badge/License-MIT-green.svg)]()
 
-[English](#english) | [中文](#中文)
+[English](#english) | [中文](#chinese-version)
 
 ---
 
+## English <a id="english"></a>
+
+J-Llama 是一个用纯 Java 手写的 Llama 2 推理引擎...
+(这里保留你原来的中文内容，不用动)
 ## English
 
 J-Llama is a pure Java inference engine for the Llama 2 architecture. 
@@ -45,7 +49,7 @@ Sample Output:
 
 Once upon a time, there was a little girl named Lily. She loved to play outside in the sunshine. One day, she saw a big, red ball in the sky. It was the sun! She thought it was so pretty...
 
-中文
+## 中文 <a id="chinese-version"></a>
 J-Llama 是一个用纯 Java 手写的 Llama 2 推理引擎。
 项目零第三方依赖（无 PyTorch/TensorFlow 等框架），核心逻辑完全基于原生 Java 数组和底层数学算子实现。
 

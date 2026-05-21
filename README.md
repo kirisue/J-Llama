@@ -8,11 +8,6 @@
 ---
 
 ## English <a id="english"></a>
-
-J-Llama 是一个用纯 Java 手写的 Llama 2 推理引擎...
-(这里保留你原来的中文内容，不用动)
-## English
-
 J-Llama is a pure Java inference engine for the Llama 2 architecture. 
 It has **zero third-party dependencies** (no PyTorch, TensorFlow, etc.). The core logic is built entirely from scratch using native Java arrays and fundamental math operators.
 

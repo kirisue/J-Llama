@@ -3,11 +3,12 @@
 [![Java](https://img.shields.io/badge/Java-17%2B-blue.svg)]()
 [![License](https://img.shields.io/badge/License-MIT-green.svg)]()
 
-[English](#english) | [中文](#chinese-version)
+[English](#english) | [中文](#中文)
 
 ---
 
-## English <a id="english"></a>
+## English
+
 J-Llama is a pure Java inference engine for the Llama 2 architecture. 
 It has **zero third-party dependencies** (no PyTorch, TensorFlow, etc.). The core logic is built entirely from scratch using native Java arrays and fundamental math operators.
 

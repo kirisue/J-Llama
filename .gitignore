@@ -36,6 +36,5 @@ build/
 .vscode/
 
 ### Mac OS ###
-.DS_Store"bin/" 
-"models/" 
-".idea/" 
+bin/
+models/
